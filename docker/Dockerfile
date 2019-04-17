@@ -1,4 +1,4 @@
-# Use the official Docker Hub Ubuntu 14.04 base image
+# Use the official Docker Hub Ubuntu 18.04 base image
 FROM ubuntu:18.04
 
 # Update the base image
@@ -38,7 +38,7 @@ RUN pip install /tmp/timesketch/
 RUN cp /tmp/timesketch/timesketch.conf /etc
 # Copy Timesketch config files into /etc/timesketch
 RUN mkdir /etc/timesketch
-RUN cp /tmp/timesketch/config/* /etc/timesketch/
+RUN cp -r /tmp/timesketch/config/* /etc/timesketch/
 
 # Copy the entrypoint script into the container
 COPY docker/docker-entrypoint.sh /
